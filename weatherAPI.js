@@ -3,7 +3,7 @@ const { _getSecretDetails } = require("./secretHelper");
 
 exports.getWeatherDetailsByCity = async city => {
     const { apiKey } = await _getSecretDetails(process.env.secret_key);
-    return axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`)
+    return axios.get(`${process.env.weatherAPI}?q=${city}&appid=${apiKey}`)
     .then(response => {
         return response.data;
     }).catch(err => {

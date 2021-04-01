@@ -4,6 +4,7 @@ const { getWeatherDetailsByCity } = require("./weatherAPI");
 exports.handler = async (event) => {
     try {
         let city = event["city"];
+        const timeDiff =  process.env.timeDiff;
         let weatherDetails = {};
         
         // Get weather Details from database
@@ -13,7 +14,7 @@ exports.handler = async (event) => {
             let lastWeatherUpdatedAT   = new Date(currentWeatherInfo.Item.updatedAt);
             let seconds = (today.getTime() - lastWeatherUpdatedAT.getTime()) / 1000;
             // check if information is older than 20 seconds
-            if(seconds >=20) {
+            if(seconds >=timeDiff) {
                 // Call and API to get Weather information
                 const getWeatherDetailsFromAPI = await getWeatherDetailsByCity(city);
                 const weatherData = {...getWeatherDetailsFromAPI};

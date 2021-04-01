@@ -17,3 +17,5 @@ Resources:
         Variables:
           REGION: us-east-2
           secret_key: weatherSecret
+          weatherAPI: http://api.openweathermap.org/data/2.5/weather
+          timeDiff: 20
