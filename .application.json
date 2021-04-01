@@ -1,0 +1,10 @@
+{
+    "DeploymentMethod": "lambda",
+    "Functions": {
+        "handleWeatherDetails": {
+            "PhysicalId": {
+                "us-east-2": "handleWeatherDetails"
+            }
+        }
+    }
+}
